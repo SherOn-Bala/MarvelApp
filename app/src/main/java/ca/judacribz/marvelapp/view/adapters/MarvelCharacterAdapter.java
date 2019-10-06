@@ -1,5 +1,6 @@
 package ca.judacribz.marvelapp.view.adapters;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class MarvelCharacterAdapter extends
     public MarvelCharacterAdapter(ArrayList<Result> results) {
         this.results = results;
     }
+
 
     @NonNull
     @Override
@@ -55,18 +57,19 @@ public class MarvelCharacterAdapter extends
 
         TextView tvName;
         ImageView ivCharacter;
+        Context context;
 
         public CharacterHolder(View itemView) {
             super(itemView);
-
+            context = itemView.getContext();
             tvName = itemView.findViewById(R.id.tvName);
             ivCharacter = itemView.findViewById(R.id.ivCharacter);
         }
 
         void bindViews(Result result) {
-            Picasso
-//                .with(itemView.context)
-                    .get()
+            Glide
+                .with(context)
+//                    .get()
                     .load(
                             String.format(
                                     "%s.%s",

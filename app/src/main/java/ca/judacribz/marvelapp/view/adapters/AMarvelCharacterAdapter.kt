@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ca.judacribz.marvelapp.R
 import ca.judacribz.marvelapp.model.marvaldata.Result
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_marvel_character.view.*
 
 class AMarvelCharacterAdapter(private val results: ArrayList<Result>) :
@@ -32,17 +31,17 @@ class AMarvelCharacterAdapter(private val results: ArrayList<Result>) :
     class CharacterHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindViews(result: Result) {
-            Picasso
-//                .with(itemView.context)
-                .get()
-                .load(
-                    String.format(
-                        "%s.%s",
-                        result.thumbnail.path,
-                        result.thumbnail.extension
-                    )
-                )
-                .into(itemView.ivCharacter)
+//            Picasso
+////                .with(itemView.context)
+//                .get()
+//                .load(
+//                    String.format(
+//                        "%s.%s",
+//                        result.thumbnail.path,
+//                        result.thumbnail.extension
+//                    )
+//                )
+//                .into(itemView.ivCharacter)
 
             itemView.tvName.text = result.name
         }
